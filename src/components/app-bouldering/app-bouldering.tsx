@@ -16,18 +16,9 @@ export class AppBouldering {
 
     render() {
         return (
-            <ion-page>
-                <ion-list>
-                    <ion-item>
-                        <ion-label>Popover</ion-label>
-                        <ion-select id="customPopoverSelect" interface="popover" placeholder="Select One">
-                            {this.boulderingGrades.map(grade => (
-                                <ion-select-option>{grade.string_value}</ion-select-option>
-                            ))}
-                        </ion-select>
-                    </ion-item>
-                </ion-list>
-            </ion-page>
+            this.boulderingGrades.map(grade => (
+                <ion-button>{grade.string_value}</ion-button>
+            ))
         );
     }
 }
