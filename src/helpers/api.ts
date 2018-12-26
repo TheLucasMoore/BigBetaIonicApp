@@ -12,9 +12,32 @@ export interface BoulderingGrade{
   "updated_at": string
 }
 
+export interface AuthResponse {
+  id: string;
+  email: string;
+  bearerToken: string;
+}
+
 class RailsAPI {
-  async bouldering(): Promise<BoulderingGrade[]> {
-    const resp = await fetch("http://localhost:3000/bouldering")
+
+  private baseURL: string = 'http://localhost:3000';
+
+  private url(endpoint: string) {
+    return `${this.baseURL}${endpoint}`;
+  }
+
+  async login(email: string, password: string): Promise<AuthResponse> {
+    const resp = await fetch(this.url(`/login`), {
+      method: 'POST',
+      body: JSON.stringify({ user: { email, password }})
+    })
+
+    const bearerToken = resp.headers.get('Authorization');
+    return { ...resp.json(), bearerToken };
+  }
+
+  async bouldering(): Promise<Partial<BoulderingGrade>[]> {
+    const resp = await fetch(this.url(`/login`));
     return resp.json() as Promise<BoulderingGrade[]>
   }
 }
