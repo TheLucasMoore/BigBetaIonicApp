@@ -2,7 +2,8 @@ import { Component, Prop, Listen } from '@stencil/core';
 
 @Component({
   tag: 'app-root',
-  styleUrl: 'app-root.css'
+  styleUrl: 'app-root.css',
+  shadow: true
 })
 export class AppRoot {
 
@@ -35,6 +36,7 @@ export class AppRoot {
         <ion-router useHash={false}>
           <ion-route url="/" component="app-home" />
           <ion-route url="/profile/:name" component="app-profile" />
+          <ion-route url="/bouldering" component="app-bouldering" />
         </ion-router>
         <ion-nav />
       </ion-app>

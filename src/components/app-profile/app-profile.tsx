@@ -7,7 +7,7 @@ import { sayHello } from '../../helpers/utils';
 })
 export class AppProfile {
 
-  @State() state = false;
+  @State() checked = false;
   @Prop() name: string;
 
   formattedName(): string {
@@ -33,12 +33,11 @@ export class AppProfile {
           {sayHello()}! My name is {this.formattedName()}. My name was passed in through a
           route param!
         </p>
-
         <ion-item>
-          <ion-label>Setting ({this.state.toString()})</ion-label>
+          <ion-label>Setting ({this.checked.toString()})</ion-label>
           <ion-toggle
-            checked={this.state}
-            onIonChange={ev => (this.state = ev.detail.checked)}
+            checked={this.checked}
+            onIonChange={ev => (this.checked = ev.detail.checked)}
           />
         </ion-item>
       </ion-content>

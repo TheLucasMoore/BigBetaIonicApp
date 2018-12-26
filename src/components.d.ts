@@ -13,6 +13,9 @@ import 'ionicons';
 
 export namespace Components {
 
+  interface AppBouldering {}
+  interface AppBoulderingAttributes extends StencilHTMLAttributes {}
+
   interface AppHome {}
   interface AppHomeAttributes extends StencilHTMLAttributes {}
 
@@ -29,17 +32,25 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'AppBouldering': Components.AppBouldering;
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
   }
 
   interface StencilIntrinsicElements {
+    'app-bouldering': Components.AppBoulderingAttributes;
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
   }
 
+
+  interface HTMLAppBoulderingElement extends Components.AppBouldering, HTMLStencilElement {}
+  var HTMLAppBoulderingElement: {
+    prototype: HTMLAppBoulderingElement;
+    new (): HTMLAppBoulderingElement;
+  };
 
   interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
   var HTMLAppHomeElement: {
@@ -60,12 +71,14 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'app-bouldering': HTMLAppBoulderingElement
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
   }
 
   interface ElementTagNameMap {
+    'app-bouldering': HTMLAppBoulderingElement;
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
