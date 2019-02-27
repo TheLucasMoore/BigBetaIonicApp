@@ -1,3 +1,15 @@
+# Starting Up
+## To Open Webpage for testing:
+`npm install` Installs all necessary dependencies / packages (do this once. you already did it, Jon), unless dependencies have been added/
+`npm run start` Opens webpage. Transpiles and puts in "Watch mode" which means you can see your changes to a file live. 
+
+
+
+
+
+
+
+
 # Ionic PWA Toolkit Beta
 
 The PWA Toolkit is a starting point for building Progressive Web Apps using Ionic and Stencil.
